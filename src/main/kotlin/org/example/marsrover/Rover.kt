@@ -29,6 +29,15 @@ class Rover {
         }
     }
 
+    fun turnRight() {
+        direction = when (direction) {
+            Direction.NORTH -> Direction.EAST
+            Direction.EAST -> Direction.SOUTH
+            Direction.SOUTH -> Direction.WEST
+            Direction.WEST -> Direction.NORTH
+        }
+    }
+
     enum class Direction {
         NORTH, SOUTH, EAST, WEST
     }

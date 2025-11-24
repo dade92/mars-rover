@@ -20,6 +20,15 @@ class Rover {
         }
     }
 
+    fun moveBackward() {
+        when (direction) {
+            Direction.NORTH -> y--
+            Direction.SOUTH -> y++
+            Direction.EAST -> x--
+            Direction.WEST -> x++
+        }
+    }
+
     enum class Direction {
         NORTH, SOUTH, EAST, WEST
     }

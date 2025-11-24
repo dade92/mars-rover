@@ -22,7 +22,7 @@ class RoverTest {
     @Nested
     inner class MoveForward {
         @Test
-        fun `move forward NORTH`() {
+        fun `move NORTH`() {
             val rover = Rover(1, 2, NORTH)
 
             rover.moveForward()
@@ -33,7 +33,7 @@ class RoverTest {
         }
 
         @Test
-        fun `move forward EAST`() {
+        fun `move EAST`() {
             val rover = Rover(1, 2, EAST)
 
             rover.moveForward()
@@ -44,7 +44,7 @@ class RoverTest {
         }
 
         @Test
-        fun `move forward WEST`() {
+        fun `move WEST`() {
             val rover = Rover(1, 2, WEST)
 
             rover.moveForward()
@@ -55,13 +55,60 @@ class RoverTest {
         }
 
         @Test
-        fun `move forward SOUTH`() {
+        fun `move SOUTH`() {
             val rover = Rover(1, 2, SOUTH)
 
             rover.moveForward()
 
             assertEquals(1, rover.x)
             assertEquals(1, rover.y)
+            assertEquals(SOUTH, rover.direction)
+        }
+    }
+
+    @Nested
+    inner class MoveBackward {
+        @Test
+        fun `move NORTH`() {
+            val rover = Rover(1, 2, NORTH)
+
+            rover.moveBackward()
+
+            assertEquals(1, rover.x)
+            assertEquals(1, rover.y)
+            assertEquals(NORTH, rover.direction)
+        }
+
+        @Test
+        fun `move EAST`() {
+            val rover = Rover(1, 2, EAST)
+
+            rover.moveBackward()
+
+            assertEquals(0, rover.x)
+            assertEquals(2, rover.y)
+            assertEquals(EAST, rover.direction)
+        }
+
+        @Test
+        fun `move WEST`() {
+            val rover = Rover(1, 2, WEST)
+
+            rover.moveBackward()
+
+            assertEquals(2, rover.x)
+            assertEquals(2, rover.y)
+            assertEquals(WEST, rover.direction)
+        }
+
+        @Test
+        fun `move SOUTH`() {
+            val rover = Rover(1, 2, SOUTH)
+
+            rover.moveBackward()
+
+            assertEquals(1, rover.x)
+            assertEquals(3, rover.y)
             assertEquals(SOUTH, rover.direction)
         }
     }

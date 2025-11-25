@@ -5,6 +5,7 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -29,5 +30,12 @@ class RoverControllerTest {
         verify { rover.turnRight() }
         verify { rover.moveBackward() }
         verify { rover.turnLeft() }
+    }
+
+    @Test
+    fun `invalid command`() {
+        Assertions.assertThrows(IllegalArgumentException::class.java) {
+            controller.run("I")
+        }
     }
 }

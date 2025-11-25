@@ -7,7 +7,6 @@ import org.example.marsrover.Rover.Direction.WEST
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.math.E
 
 class RoverTest {
 
@@ -159,6 +158,54 @@ class RoverTest {
             assertEquals(1, rover.x)
             assertEquals(2, rover.y)
             assertEquals(NORTH, rover.direction)
+        }
+    }
+
+    @Nested
+    inner class TurnLeft {
+
+        @Test
+        fun `turn NORTH`() {
+            val rover = Rover(1, 2, NORTH)
+
+            rover.turnLeft()
+
+            assertEquals(1, rover.x)
+            assertEquals(2, rover.y)
+            assertEquals(WEST, rover.direction)
+        }
+
+        @Test
+        fun `turn EAST`() {
+            val rover = Rover(1, 2, EAST)
+
+            rover.turnLeft()
+
+            assertEquals(1, rover.x)
+            assertEquals(2, rover.y)
+            assertEquals(NORTH, rover.direction)
+        }
+
+        @Test
+        fun `turn SOUTH`() {
+            val rover = Rover(1, 2, SOUTH)
+
+            rover.turnLeft()
+
+            assertEquals(1, rover.x)
+            assertEquals(2, rover.y)
+            assertEquals(EAST, rover.direction)
+        }
+
+        @Test
+        fun `turn WEST`() {
+            val rover = Rover(1, 2, WEST)
+
+            rover.turnLeft()
+
+            assertEquals(1, rover.x)
+            assertEquals(2, rover.y)
+            assertEquals(SOUTH, rover.direction)
         }
     }
 }
